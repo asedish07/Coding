@@ -1,11 +1,16 @@
-# k개 만큼의 숫자를 골라 가장 작은 수를 만들고, 빼자
-# 
-
 def solution(number, k):
-    answer = ''
-    answer = number[-(k-1):]
-    tmp = list(number[:-(k-1)])
-    while len(tmp) == k-1:
-        ma = tmp.index(max(tmp))
-        
-     return answer
+    answer = []
+
+    for i in number:
+        if not answer:
+            answer.append(i)
+            continue
+        while answer[-1] < i and k > 0:
+            answer.pop()
+            k -= 1
+            if not answer or k <= 0:
+                break
+        answer.append(i)
+        if len(answer) == len(number) - k:
+            break
+    return ''.join(answer)
