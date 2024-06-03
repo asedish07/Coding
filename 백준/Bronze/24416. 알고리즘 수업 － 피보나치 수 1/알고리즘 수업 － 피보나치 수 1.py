@@ -1,13 +1,12 @@
 import sys
 
-def fib(num):
-  D = [0] * 40
-  D[0] = 1
-  D[1] = 1
-  for i in range(2, 40):
-    D[i] = D[i - 1] + D[i - 2]
-  return D[num - 1]
-
 n = int(sys.stdin.readline())
-tmp = fib(n)
-print(tmp, n - 2)
+f = [0] * 41
+
+def fibonacci(n):
+  f[1] = f[2] = 1
+  for i in range(3, n + 1):
+    f[i] = f[i - 1] + f[i - 2]
+  return f[n]
+
+print(fibonacci(n), n - 2)
