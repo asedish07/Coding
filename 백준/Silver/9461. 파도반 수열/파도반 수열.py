@@ -1,16 +1,9 @@
 import sys
 
-def wavy(num):
-  D = [0] * 100
-  D[0] = 1
-  D[1] = 1
-  D[2] = 1
-  D[3] = 2
-  D[4] = 2
-  for x in range(5, 100):
-    D[x] = D[x - 1] + D[x - 5]
-  return D[num -  1]
-
+lst = [1, 1, 1, 2, 2, 3, 4, 5, 7, 9]
 n = int(sys.stdin.readline())
+for i in range(10, 100):
+  lst.append(lst[i - 1] + lst[i - 5])
 for i in range(n):
-  print(wavy(int(sys.stdin.readline())))
+  num = int(sys.stdin.readline())
+  print(lst[num - 1])
