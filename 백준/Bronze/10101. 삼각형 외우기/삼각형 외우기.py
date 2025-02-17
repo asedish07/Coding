@@ -1,11 +1,14 @@
-a = int(input())
-b = int(input())
-c = int(input())
-if a == 60 and b == c and b == a:
+import sys
+
+a = int(sys.stdin.readline())
+b = int(sys.stdin.readline())
+c = int(sys.stdin.readline())
+s = a+b+c
+if a == b and b == c and a == 60:
     print("Equilateral")
-elif (a+b+c) == 180 and a == b or b == c or a == c:
+elif (a == b or b == c or a == c) and s == 180:
     print("Isosceles")
-elif (a+b+c) == 180 and a != b and b != c and a != c:
+elif s == 180:
     print("Scalene")
 else:
     print("Error")
